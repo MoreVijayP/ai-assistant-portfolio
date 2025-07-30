@@ -14,8 +14,16 @@ A sophisticated AI-powered chatbot system that provides intelligent responses ab
 ## 🏗️ Data Flow Architecture
 
 ```
-<img width="281" height="284" alt="image" src="https://github.com/user-attachments/assets/dd905c5b-254b-4681-ae85-a5903cf8d80c" />
-<img width="283" height="290" alt="image" src="https://github.com/user-attachments/assets/8d1ef2bb-1a35-4c4c-8e18-6abdbb7fcf4c" />
+ A[📧 User Query] -->|Webhook| B[🤖 AI Agent]
+    B -->|Vector Search| C[(🔍 Pinecone)]
+    C -->|Context| D[⚡ Gemini LLM]
+    D -->|Answer| E[📝 Webhook Response]
+
+    F[📄 PDF Files] --> G[File Trigger]
+    G --> H[Text Extraction]
+    H --> I[Chunking 1k chars]
+    I --> J[Embedding (Gemini)]
+    J --> K[(🔍 Pinecone)]
 
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │   Web Frontend  │───▶│   Azure Web App  │───▶│  n8n Workflows  │
