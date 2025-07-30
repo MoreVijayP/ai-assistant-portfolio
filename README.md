@@ -166,9 +166,7 @@ ai-assistant-portfolio/
 ├── 📁 scripts/
 │   └── deploy.sh
 ├── .env.example
-├── package.json
-├── README.md
-└── azure-pipelines.yml
+└── README.md
 ```
 
 ## 🔄 Workflow Details
